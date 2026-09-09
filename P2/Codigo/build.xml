@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="P2SistemasDistribuidos" default="default" basedir=".">
+    <description>Builds, tests, and runs the project P2SistemasDistribuidos.</description>
+    <import file="nbproject/build-impl.xml" optional="true"/>
+    
+    <!-- Metas de compilación independientes (compatibles dentro y fuera de NetBeans) -->
+    <target name="default" depends="compile,jar"/>
+    
+    <target name="init">
+        <mkdir dir="build/classes"/>
+        <mkdir dir="dist"/>
+    </target>
+    
+    <target name="compile" depends="init">
+        <javac srcdir="src" destdir="build/classes" includeantruntime="false" encoding="UTF-8" source="1.8" target="1.8"/>
+    </target>
+    
+    <target name="jar" depends="compile">
+        <jar destfile="dist/P2SistemasDistribuidos.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="com.mycompany.p2sistemasdistribuidos.P2SistemasDistribuidos"/>
+            </manifest>
+        </jar>
+    </target>
+    
+    <target name="run" depends="jar">
+        <java jar="dist/P2SistemasDistribuidos.jar" fork="true"/>
+    </target>
+    
+    <target name="clean">
+        <delete dir="build"/>
+        <delete dir="dist"/>
+    </target>
+</project>
